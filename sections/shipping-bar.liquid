@@ -1,3 +1,13 @@
+<style type="text/css" >
+  .shipping-bar {
+    background-color: {{ section.settings.background-color }};
+  }
+
+  .shipping-bar p {
+    color: {{ section.settings.text-color }}
+  }
+</style>
+
 {% assign threshold = section.settings.free-shipping-threshold | times: 100 %}
 {% assign amount_remainging = threshold | minus: cart.items_subtotal_price %}
 {% assign amount_remaining_money = amount_remainging | money %}
@@ -35,3 +45,11 @@
   ]
 }
 {% endschema %}
+
+{% stylesheet %}
+  .shipping-bar {
+    text-align: center;
+    padding: 0.5em 2;
+    font-weight: 600;
+  }
+{% endstylesheet %}
