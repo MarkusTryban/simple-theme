@@ -1,3 +1,7 @@
+{% assign threshold = section.settings.free-shipping-threshold | times: 100 %}
+{% assign amount_remainging = threshold | minus: cart.items_subtotal_price %}
+{% assign amount_remaining_money = amount_remainging | money %}
+
 {% schema %}
 {
   "name": "Free Shipping Bar",
