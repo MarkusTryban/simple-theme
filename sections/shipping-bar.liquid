@@ -2,6 +2,14 @@
 {% assign amount_remainging = threshold | minus: cart.items_subtotal_price %}
 {% assign amount_remaining_money = amount_remainging | money %}
 
+<div class="shipping-bar">
+  {% if amount_remaining <= 0 %}
+    <p>{{ section.settings.free-shipping-message }}</p>
+    {% else %}
+      <p>{{ section.settings.approaching-message | replace: '*', amount_remaining_money }} </p>
+  {% endif %}
+</div>
+
 {% schema %}
 {
   "name": "Free Shipping Bar",
